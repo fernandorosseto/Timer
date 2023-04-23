@@ -18,13 +18,20 @@ const inputSeconds = document.querySelector('seconds');
 ============================================
 */
 
+let functionTimer = false;
+
 var startbtn = document.getElementById('startbtn')
 
 startbtn.addEventListener('click', function(){
 // add function star timer.
+
+    if (!functionTimer) {
+    functionTimer = true;
     
     coudowTimer()
     
+    funcaoEmAndamento = false;
+  }
 });
 
 var pausebtn = document.getElementById('pausebtn')
