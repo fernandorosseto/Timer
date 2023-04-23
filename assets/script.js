@@ -10,7 +10,6 @@ var minutes = document.getElementById('minutes')
 var hours = document.getElementById('hours')
 var inicialTime 
 var timer
-const inputSeconds = document.querySelector('seconds');
 
 /* 
 ============================================
@@ -18,21 +17,13 @@ const inputSeconds = document.querySelector('seconds');
 ============================================
 */
 
-let functionTimer = false;
-
 var startbtn = document.getElementById('startbtn')
 
 startbtn.addEventListener('click', function(){
 // add function star timer.
-
-    if (!functionTimer) {
-    functionTimer = true;
-    
-    coudowTimer()
-    
-    funcaoEmAndamento = false;
-  }
+    coutdowTimer()
 });
+
 
 var pausebtn = document.getElementById('pausebtn')
 
@@ -46,9 +37,9 @@ var clearbtn = document.getElementById('clearbtn')
 clearbtn.addEventListener('click', function(){
 // add function stop timer.
     clearInterval(timer)
-    seconds.value = '00'
-    minutes.value = '00'
-    hours.value = '00'
+    seconds.value = ''
+    minutes.value = ''
+    hours.value = ''
     
 });
 
@@ -58,7 +49,7 @@ clearbtn.addEventListener('click', function(){
 ============================================
 */
 
-var coudowTimer = function (){
+var coutdowTimer = function (){
     let secNumber = Number(seconds.value)
     let minNumber = Number(minutes.value)
     let hoursNumber = Number(hours.value)
@@ -66,9 +57,9 @@ var coudowTimer = function (){
     
     if (inicialTime === 0 || isNaN(inicialTime)){
         alert('Por favor, preencha o campo de entrada corretamente.')
-        seconds.value = '00'
-        minutes.value = '00'
-        hours.value = '00'
+        seconds.value = ''
+        minutes.value = ''
+        hours.value = ''
     }
     else{
         timer = setInterval(function(){
