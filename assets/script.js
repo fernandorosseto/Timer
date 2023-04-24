@@ -10,6 +10,7 @@ var minutes = document.getElementById('minutes')
 var hours = document.getElementById('hours')
 var inicialTime 
 var timer
+var controle = true
 
 /* 
 ============================================
@@ -21,7 +22,16 @@ var startbtn = document.getElementById('startbtn')
 
 startbtn.addEventListener('click', function(){
 // add function star timer.
-    coutdowTimer()
+    if(controle == true){
+        coutdowTimer()
+        controle = false
+    }
+    else{
+        if (inicialTime === 0) {
+            controle = true
+        }
+    }
+    
 });
 
 
@@ -30,6 +40,7 @@ var pausebtn = document.getElementById('pausebtn')
 pausebtn.addEventListener('click', function(){
 // add function pause timer.
     clearInterval(timer)
+    controle = true
 });
 
 var clearbtn = document.getElementById('clearbtn')
@@ -37,10 +48,8 @@ var clearbtn = document.getElementById('clearbtn')
 clearbtn.addEventListener('click', function(){
 // add function stop timer.
     clearInterval(timer)
-    seconds.value = ''
-    minutes.value = ''
-    hours.value = ''
-    
+    location.reload();
+
 });
 
 /* 
@@ -48,6 +57,7 @@ clearbtn.addEventListener('click', function(){
      FUNCIONS          
 ============================================
 */
+
 
 var coutdowTimer = function (){
     let secNumber = Number(seconds.value)
@@ -57,13 +67,10 @@ var coutdowTimer = function (){
     
     if (inicialTime === 0 || isNaN(inicialTime)){
         alert('Por favor, preencha o campo de entrada corretamente.')
-        seconds.value = ''
-        minutes.value = ''
-        hours.value = ''
+        location.reload()
     }
     else{
         timer = setInterval(function(){
-
             inicialTime = inicialTime - 1
             hoursNumber = parseInt(inicialTime/3600)
             minNumber = parseInt((inicialTime%3600)/60)
@@ -86,7 +93,6 @@ var coutdowTimer = function (){
             else{
                 hours.value = hoursNumber
             }    
-               
             if (inicialTime === 0) {
                 
                 clearInterval(timer)
