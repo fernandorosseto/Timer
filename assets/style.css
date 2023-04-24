@@ -121,3 +121,12 @@ div[class*=box] {
 	transform: scale(1,1);
 }
 
+@media screen and (max-whidt: 730px){
+	.watch {
+		width: 100%; 
+		}
+	input{
+		height: 3rem;
+		
+	}
+}
