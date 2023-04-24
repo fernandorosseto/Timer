@@ -129,17 +129,5 @@ div[class*=box] {
 		height: 1rem;
 		text-size-adjust: 1rem;
 		justify-content: space-between;
-			
-	}
-	#hours::placeholder{
-		content: 'horas';
 
-	}
-	#minutes::placeholder{
-		content: "Min";
-		
-	}
-	#seconds::placeholder{
-		content: "Sec";
-	}
 }
